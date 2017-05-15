@@ -34,4 +34,30 @@ app.controller("MainCtrl", ($http, $q, $scope, FIREBASE_CONFIG) => {
 
     getItems();
 
+    let postNewAddress = (newAddress) => {
+        return $q((resolve, reject) => {
+            $http.post(`${FIREBASE_CONFIG.databaseURL}/addresses.json`, JSON.stringify(newAddress))
+                .then((resultz) => {
+                    resolve(resultz);
+                })
+                .catch((error) => {
+                    console.log("Post newAddress error", error);
+                });
+        });
+    };
+
+    $scope.addNewAddress = () => {
+
+        //$scope.newAddress.isCompleted = false;
+        postNewAddress($scope.newAddress).then((response) => {
+            $scope.newAddress = {};
+            //$scope.showListView = true;
+            getItems();
+        }).catch((error) => {
+            console.log("addNewAddress error", error);
+        });
+
+        //postNewItem
+    };
+
 });
