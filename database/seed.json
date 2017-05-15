@@ -1,0 +1,22 @@
+{
+    "addresses": {
+        "address0": {
+            "first_name": "John",
+            "last_name": "Smith",
+            "mobile": "111.111.1111",
+            "email": "a@a.com"
+        },
+        "address1": {
+            "first_name": "Smitty",
+            "last_name": "Smithson",
+            "mobile": "222.222.2222",
+            "email": "b@b.com"
+        },
+        "address2": {
+            "first_name": "Sally",
+            "last_name": "Martin",
+            "mobile": "333.333.3333",
+            "email": "c@c.com"
+        }
+    }
+}
