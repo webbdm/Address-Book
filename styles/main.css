@@ -1,1 +1,30 @@
+body {
+  background-color: #292727; }
 
+.navbar {
+  background-color: #292727;
+  border-color: #292727; }
+  .navbar h1 {
+    font-size: 55px;
+    font-family: "Raleway", sans-serif;
+    color: white; }
+
+.container {
+  margin: 0px;
+  height: 100vh;
+  width: 100%; }
+  .container .left {
+    text-align: center; }
+    .container .left label {
+      color: #3f7fbf; }
+    .container .left .inputs button {
+      margin: 10px;
+      background-color: #3f7fbf;
+      border-color: #3f7fbf;
+      box-shadow: none; }
+  .container .right {
+    background-color: white;
+    height: 100vh;
+    overflow: auto; }
+    .container .right .address {
+      border-bottom: 1px solid black; }

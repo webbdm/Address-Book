@@ -2,19 +2,60 @@
 <html>
 
 <head>
-    <title>Address</title>
+    <title>Address Book</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./lib/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./styles/main.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body ng-app="Address">
-    <div ng-controller="MainCtrl">
-        <h1>{{thing}}</h1>
+<body ng-app="AddressApp">
+    <div ng-controller="MainCtrl" class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <h1>address book<h1>
+                        <!-- <img alt="ACME" src="http://web.itu.edu.tr/gordebak/bil103/company/photo-main.jpg"> -->
+                    </a>
+                    <div class="btn-group">
+                        <ul class="dropdown-menu" id="drop">
+                            <!-- <li><a href="#" id="dropFireworks" catValue="fireworks">Fireworks</a></li>
+                        <li><a href="#" id="dropDemo" catValue="demolition">Demolition</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="left col-md-6">
+            <div class="inputs">
+                <label for="address-input">Address</label>
+                <br>
+                <input type="text" ng-model="newAddress.first_name" name="address-first" id="address-first" placeholder="First Name">
+                <br>
+                <input type="text" ng-model="newAddress.last_name" name="address-last" id="address-last" placeholder="Last Name">
+                <br>
+                <input type="tel" ng-model="newAddress.mobile" name="address-mobile" id="address-mobile" placeholder="Mobile">
+                <br>
+                <input type="email" ng-model="newAddress.email" name="address-email" id="address-email" placeholder="Email">
+                <br>
+                <button ng-click="addNewAddress()">New Address</button>
+            </div>
+        </div>
+        <div class="right col-md-6">
+            <div class="address" ng-repeat="entry in addresses">
+                <h1>{{entry.first_name}} {{entry.last_name}}</h1>
+                <p>{{entry.mobile}}</p>
+                <p>{{entry.email}}</p>
+            </div>
+        </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="./lib/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./javascript/app.js"></script>
+    <script type="text/javascript" src="./javascript/AppConstants.js"></script>
     <script type="text/javascript" src="./javascript/main.js"></script>
 </body>
 
