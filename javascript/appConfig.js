@@ -5,16 +5,16 @@ app.run(function(FIREBASE_CONFIG) {
 app.config(function($routeProvider) {
     $routeProvider
         .when('/list', {
-            templateUrl: 'partials/Address-list.html',
+            templateUrl: 'partials/Address-List.html',
             controller: 'AddressListCtrl'
         })
         .when('/new', {
             templateUrl: 'partials/New-Add.html',
             controller: 'NewAddCtrl'
         })
-        .when('/', {
-            templateUrl: 'partials/Main.html',
-            controller: 'MainCtrl'
-        })
-        .otherwise('/main');
+        // .when('/new', {
+        //     templateUrl: 'partials/Main.html',
+        //     controller: 'NewAddCtrl'
+        // })
+        .otherwise('/new');
 });

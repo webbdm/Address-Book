@@ -1,0 +1,8 @@
+<div ng-controller="AddressListCtrl" class="right col-md-offset-6 col-md-6">
+    <div class="address" ng-repeat="entry in addresses">
+        <h1>{{entry.first_name}} {{entry.last_name}}</h1>
+        <p>{{entry.mobile}}</p>
+        <p>{{entry.email}}</p>
+        <button class="btn btn-danger fa fa-trash-o" ng-click="deleteAddress(entry.id)"></button>
+    </div>
+</div>
