@@ -18,6 +18,20 @@ app.factory("AddressFactory", function($http, $q, FIREBASE_CONFIG) {
 
     };
 
+    let getSingleAddress = (addressID) => {
+        console.log("test id",addressID);
+        return $q((resolve, reject) => {
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/addresses/${addressID}.json`)
+                .then((results) => {
+                    let addressToEdit = results.data;
+                    //console.log(results.data);
+                    resolve(addressToEdit);
+                }).catch((error) => {
+                    reject(error);
+                });
+        });
+    };
+
     let postNewAddress = (newAddress) => {
         return $q((resolve, reject) => {
             $http.post(`${FIREBASE_CONFIG.databaseURL}/addresses.json`, JSON.stringify(newAddress))
@@ -42,7 +56,26 @@ app.factory("AddressFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     };
 
+    let editAddress = (editedAddress) => {
+        console.log("PUT factory", editedAddress);
+        return $q((resolve, reject) => {
+            $http.put(`${FIREBASE_CONFIG.databaseURL}/addresses/${editedAddress.id}.json`,
+                JSON.stringify({
+                    first_name: editedAddress.first_name,
+                    last_name: editedAddress.last_name,
+                    mobile: editedAddress.mobile,
+                    email: editedAddress.email,
+                    id: editedAddress.id
+                })
+            ).then((resultz) => {
+                resolve(resultz);
+            }).catch((error) => {
+                reject(error);
+            });
+        });
+    };
 
-    return { getAddresses: getAddresses, postNewAddress: postNewAddress, deletez: deletez };
+
+    return { getAddresses: getAddresses, postNewAddress: postNewAddress, deletez: deletez, editAddress: editAddress, getSingleAddress: getSingleAddress };
 
 });

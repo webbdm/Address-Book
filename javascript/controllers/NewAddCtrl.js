@@ -7,7 +7,7 @@ app.controller("NewAddCtrl", function($routeParams, $scope, AddressFactory) {
         AddressFactory.postNewAddress($scope.newAddress).then((response) => {
             $scope.newAddress = {};
             //$scope.showListView = true;
-            getItems();
+            //getItems();
         }).catch((error) => {
             console.log("addNewAddress error", error);
         });

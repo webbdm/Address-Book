@@ -12,9 +12,13 @@ app.config(function($routeProvider) {
             templateUrl: 'partials/New-Add.html',
             controller: 'NewAddCtrl'
         })
-        // .when('/new', {
-        //     templateUrl: 'partials/Main.html',
-        //     controller: 'NewAddCtrl'
-        // })
-        .otherwise('/new');
+        .when('/view/:id', {
+            templateUrl: 'partials/address-view.html',
+            controller: 'EditCtrl'
+        })
+        .when('/edit/:id', {
+            templateUrl: 'partials/New-Add.html',
+            controller: 'EditCtrl'
+        })
+        .otherwise('/list');
 });

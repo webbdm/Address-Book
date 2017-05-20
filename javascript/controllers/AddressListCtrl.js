@@ -4,7 +4,7 @@ app.controller("AddressListCtrl", function($routeParams, $scope, AddressFactory)
     let getItems = () => {
         AddressFactory.getAddresses().then((itemz) => {
             $scope.addresses = itemz;
-            console.log($scope.addresses);
+            //console.log($scope.addresses);
         }).catch((error) => {
             console.log("get Error", error);
         });
@@ -14,10 +14,12 @@ app.controller("AddressListCtrl", function($routeParams, $scope, AddressFactory)
 
     //Edit Address
 
+    
+
     //Delete Address
 
-    $scope.deleteAddress = (addressId) => {
-        AddressFactory.deletez(addressId).then(() => {
+    $scope.deleteAddress = (addressID) => {
+        AddressFactory.deletez(addressID).then(() => {
             getItems();
         }).catch(() => {
             console.log("deleteItem error", error);
