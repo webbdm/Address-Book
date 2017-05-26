@@ -24,18 +24,21 @@
                         </ul>
                     </div>
                 </div>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" ng-if="user.uid">
                     <li><a href="#!/new">New</a></li>
                     <li><a href="#!/list">List</a></li>
+                    <li><a href="#!/logout">Logout</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-if="!user.uid">
+                    <li><a href="#!/auth">Authenticate</a></li>
                 </ul>
             </div>
         </nav>
-
-        <div ng-view></div> <!-- View -->
-
+        <div ng-view></div>
+        <!-- View -->
     </div>
 
-    
+
 
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
@@ -43,17 +46,18 @@
     <script type="text/javascript" src="./lib/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="./lib/bower_components/angular-route/angular-route.min.js"></script>
 
-    
     <script type="text/javascript" src="./javascript/app.js"></script>
     <script type="text/javascript" src="./javascript/appConfig.js"></script>
     <script type="text/javascript" src="./javascript/AppConstants.js"></script>
-    <!-- <script type="text/javascript" src="./javascript/main.js"></script> -->
 
     <script type="text/javascript" src="./javascript/factories/AddressFactory.js"></script>
+    <script type="text/javascript" src="./javascript/factories/AuthFactory.js"></script>
+    <script type="text/javascript" src="./javascript/factories/UserFactory.js"></script>
+    
     <script type="text/javascript" src="./javascript/controllers/AddressListCtrl.js"></script>
     <script type="text/javascript" src="./javascript/controllers/NewAddCtrl.js"></script>
     <script type="text/javascript" src="./javascript/controllers/EditCtrl.js"></script>
-
+    <script type="text/javascript" src="./javascript/controllers/AuthCtrl.js"></script>
 </body>
 
 </html>

@@ -12,7 +12,6 @@ app.controller("EditCtrl", function($location, $routeParams, $scope, AddressFact
         console.log("edit Error", error);
     });
 
-
     $scope.addNewAddress = () => {
         console.log("TEST PUT",$scope.newAddress);
         AddressFactory.editAddress($scope.newAddress).then(() => {
@@ -22,7 +21,6 @@ app.controller("EditCtrl", function($location, $routeParams, $scope, AddressFact
         });
     };
 
-
     // $scope.EditNewItem = () => {
     //     ItemFactory.editItem($scope.editItem).then(() => {
     //         $location.url('/list');
@@ -30,7 +28,5 @@ app.controller("EditCtrl", function($location, $routeParams, $scope, AddressFact
     //         console.log("editItem error", error);
     //     });
     // };
-
-
 
 });
